@@ -23,22 +23,12 @@ repositories {
 	mavenCentral()
 }
 
+
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.springframework.boot:spring-boot-starter-web')
-	
-	compile('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
-	
 	runtime('org.springframework.boot:spring-boot-devtools')
 	runtime('com.h2database:h2')
 	compileOnly('org.projectlombok:lombok')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile('org.mapstruct:mapstruct-jdk8:1.2.0.Final')
-}
-
-compileJava {
-    options.compilerArgs = [
-        '-Amapstruct.defaultComponentModel=spring',
-        '-Amapstruct.suppressGeneratorVersionInfoComment=true'
-    ]
 }
