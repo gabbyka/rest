@@ -7,9 +7,9 @@ import guru.springframework.rest.repositories.CategoryRepository;
 
 @Component
 public class Bootstrap implements CommandLineRunner {
-    
+
     private final CategoryRepository categoryRepository;
-    
+
     public Bootstrap(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
@@ -37,8 +37,7 @@ public class Bootstrap implements CommandLineRunner {
         categoryRepository.save(exotic);
         categoryRepository.saveAndFlush(nuts);
 
-
-        System.out.println("Data Loaded = " + categoryRepository.count() );
+        System.out.println("Data Loaded = " + categoryRepository.count());
     }
 
 }
