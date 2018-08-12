@@ -18,11 +18,6 @@
 			<attribute name="gradle_used_by_scope" value="main,test"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry sourcepath="/Users/gabbyka/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.16.22/38bc39b0677b208aeacbdc2d30e8499663687373/lombok-1.16.22-sources.jar" kind="lib" path="/Users/gabbyka/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.16.22/e555426550f54284fefb09065f2123a1d9be0b73/lombok-1.16.22.jar">
-		<attributes>
-			<attribute name="gradle_used_by_scope" value=""/>
-		</attributes>
-	</classpathentry>
 	<classpathentry sourcepath="/Users/gabbyka/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-aop/2.0.4.RELEASE/4d8319c254cd1107ba3f6eee023a463a94b23d31/spring-boot-starter-aop-2.0.4.RELEASE-sources.jar" kind="lib" path="/Users/gabbyka/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-aop/2.0.4.RELEASE/5e963eb965b72e113a05351c482e3d613f04e59d/spring-boot-starter-aop-2.0.4.RELEASE.jar">
 		<attributes>
 			<attribute name="gradle_used_by_scope" value="main,test"/>
