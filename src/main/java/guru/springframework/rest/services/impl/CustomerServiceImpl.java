@@ -5,7 +5,9 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import guru.springframework.rest.api.v1.mapper.CustomerMapper;
 import guru.springframework.rest.api.v1.model.CustomerDTO;
+import guru.springframework.rest.controllers.v1.CustomerController;
 import guru.springframework.rest.domain.Customer;
+import guru.springframework.rest.exceptions.ResourceNotFoundException;
 import guru.springframework.rest.repositories.CustomerRepository;
 import guru.springframework.rest.services.CustomerService;
 
@@ -30,7 +32,14 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO getCustomerById(Long id) {
-        return customerMapper.customerToCustomerDto(customerRepository.findById(id).get());
+        return customerRepository.findById(id)
+                .map(customerMapper::customerToCustomerDto)
+                .map(customerDTO -> {
+                    //set API URL
+                    customerDTO.setCustomerUrl(getCustomerUrl(id));
+                    return customerDTO;
+                })
+                .orElseThrow(ResourceNotFoundException::new);
     }
 
     @Override
@@ -68,7 +77,7 @@ public class CustomerServiceImpl implements CustomerService {
 
             return returnDto;
 
-        }).orElseThrow(RuntimeException::new); // todo implement better exception handling;
+        }).orElseThrow(ResourceNotFoundException::new);
     }
 
     @Override
@@ -76,4 +85,7 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.deleteById(id);
     }
 
+    private String getCustomerUrl(Long id) {
+        return CustomerController.BASE_URL + "/" + id;
+    }
 }
